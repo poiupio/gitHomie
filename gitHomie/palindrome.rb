@@ -1,3 +1,3 @@
 def palindrome? (word)
-    word eql? word.reverse
+  word eql? word.reverse
 end
