@@ -5,12 +5,12 @@ def customer_state(session_id = nil)
   return {
     state: 'no_seats_available',
     queue: waiting_count,
-  }if Chat.waiting_chat_count(id) >= max_queue
+  } if Chat.waiting_chat_count(id) >= max_queue
 
   { state: 'online' }
 end
 
-def chat_session_state()
+def chat_session_state
   state = nil
   chat_session = Chat::Session.find_by(session_id: session_id, state: %w[waiting running])
     if chat_session.state == 'running'
@@ -42,7 +42,7 @@ def running_atributes(chat_session)
   atributes
 end
 
-def user_atributes()
+def user_atributes
   url = nil
   chat_user = User.lookup(id: chat_session.user_id)
 
